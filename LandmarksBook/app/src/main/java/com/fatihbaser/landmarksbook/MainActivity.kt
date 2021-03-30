@@ -10,10 +10,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+//var selectedGlobalBitmap:Bitmap?=null
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         var landmarkNames=ArrayList<String>()
         landmarkNames.add("Pisa")
@@ -39,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         listview.onItemClickListener=AdapterView.OnItemClickListener { parent, view, position, id ->
             val intent= Intent(applicationContext,DetailsActivity::class.java)
             intent.putExtra("name",landmarkNames[position])
+           // selectedGlobalBitmap=landmarkImages[position]
+            val singleton=Singleton.Selected
+            singleton.selectedImage=landmarkImages[position]
             startActivity(intent)
         }
     }

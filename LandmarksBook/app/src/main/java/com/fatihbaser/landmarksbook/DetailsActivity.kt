@@ -13,5 +13,9 @@ class DetailsActivity : AppCompatActivity() {
         val intent =intent
         val landmarkName=intent.getStringExtra("name")
         textView.text=landmarkName
+        //imageView.setImageBitmap(selectedGlobalBitmap)
+        val singleton=Singleton.Selected
+        val selcetedBitmap=singleton.selectedImage
+        imageView.setImageBitmap(selcetedBitmap)
     }
 }
